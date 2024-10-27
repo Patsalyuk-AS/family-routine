@@ -1,4 +1,4 @@
-package com.github.aspatsalyuk.familywalletusers;
+package com.github.aspatsalyuk.familyroutinehub;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
