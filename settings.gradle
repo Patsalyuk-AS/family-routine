@@ -1,3 +1,5 @@
-include 'family-wallet-users'
-include 'family-wallet-finances'
-include 'family-wallet-db'
+include 'family-routine-users'
+include 'family-routine-finances'
+include 'family-routine-notifications'
+include 'family-routine-hub'
+include 'family-routine-db'
