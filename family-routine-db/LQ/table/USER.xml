@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.6.xsd">
+
+    <changeSet id="20240526-table_user_create" author="aspatsalyuk">
+        <preConditions onError="HALT" onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="user" schemaName="user_auth"/>
+            </not>
+        </preConditions>
+        <createTable tableName="user" schemaName="user_auth" remarks="Пользователи">
+            <column name="guid" type="UUID" remarks="Идентификатор записи в формате UUID">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_user"/>
+            </column>
+            <column name="login" type="TEXT" remarks="Логин пользователя">
+                <constraints nullable="false"/>
+            </column>
+            <column name="name" type="TEXT" remarks="ФИО пользователя">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_time" defaultValueComputed="current_timestamp" type="TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+</databaseChangeLog>

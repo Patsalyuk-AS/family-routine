@@ -1,0 +1,26 @@
+plugins {
+    id 'org.liquibase.gradle' version '2.2.2'
+}
+
+dependencies {
+    liquibaseRuntime 'org.liquibase:liquibase-core:4.16.1'
+    liquibaseRuntime 'org.liquibase:liquibase-groovy-dsl:3.0.2'
+    liquibaseRuntime 'info.picocli:picocli:4.6.1'
+    liquibaseRuntime 'org.postgresql:postgresql:42.7.3'
+}
+
+liquibase {
+    jvmArgs "-Duser.dir=$project.projectDir"
+
+//    mainClassName 'org.liquibase.gradle.OutputEnablingLiquibaseRunner'
+    activities {
+        main {
+            changelogFile './LQ/main.xml'
+            url 'jdbc:postgresql://localhost:5432/vallet_db'
+            username 'pg-admin'
+            password '8620Pasw'
+            logLevel "info"
+        }
+    }
+    runList = 'main'
+}
