@@ -1,2 +1,3 @@
 include 'family-wallet-users'
+include 'family-wallet-finances'
 include 'family-wallet-db'
